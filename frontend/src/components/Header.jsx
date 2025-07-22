@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import SearchBar from './SearchBar';
 import logo from '../../public/img/logo.png';
 
 export default function Header() {
@@ -18,8 +17,9 @@ export default function Header() {
                             <Link className="text-decoration-none px-3" to={'/products'}>Prodotti</Link>
                         </li>
                     </ul>
-                    <SearchBar />
-                    ❤️
+                    <Link to="/favorites" className="text-decoration-none">
+                        ❤️
+                    </Link>
                 </div>
             </div>
         </nav>
