@@ -43,7 +43,7 @@ export default function ProductDetail() {
                     />
                 </div>
                 <div className="col-md-6">
-                    <h1 className="mb-3">{product.title}</h1>
+                    <h1 className="mb-3"><strong>{product.title}</strong></h1>
                     <div className="mb-3">
                         <span className="badge bg-secondary fs-6">{product.category}</span>
                         {product.isBio && <span className="badge bg-success ms-2 fs-6">BIO</span>}
@@ -52,7 +52,7 @@ export default function ProductDetail() {
                     <p className="lead text-primary fs-3">€{product.price}</p>
                     
                     <div className="mb-3">
-                        <h5>Descrizione:</h5>
+                        <h5><strong>Descrizione</strong></h5>
                         <p>{product.description}</p>
                     </div>
                     
@@ -60,6 +60,9 @@ export default function ProductDetail() {
                         <div className="col-sm-6">
                             <strong>Peso:</strong> {product.weight}g
                         </div>
+                    </div>
+
+                    <div className="row mb-3">
                         <div className="col-sm-6">
                             <strong>Marca:</strong> {product.brand}
                         </div>
