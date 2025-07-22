@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import SearchBar from './SearchBar';
 
 export default function Header() {
     return (
@@ -11,9 +12,10 @@ export default function Header() {
                 <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0 p-3">
                         <li className="nav-item">
-                            <Link className="text-decoration-none px-3" to={'/ProductList'}>Prodotti</Link>
+                            <Link className="text-decoration-none px-3" to={'/products'}>Prodotti</Link>
                         </li>
                     </ul>
+                    <SearchBar />
                     ❤️
                 </div>
             </div>
