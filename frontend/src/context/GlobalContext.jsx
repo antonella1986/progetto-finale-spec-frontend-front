@@ -4,7 +4,16 @@ import { useProduct } from "../hook/useProduct";
 const GlobalContext = createContext();
 
 const GlobalProvider = ({ children }) => {
-    const { products, setProducts, filteredProducts, searchQuery, setSearchQuery } = useProduct();
+    const { 
+        products, 
+        setProducts, 
+        filteredProducts, 
+        searchQuery, 
+        setSearchQuery,
+        selectedCategory,
+        setSelectedCategory,
+        categories
+    } = useProduct();
 
     return(
         <GlobalContext.Provider value={{ 
@@ -12,7 +21,10 @@ const GlobalProvider = ({ children }) => {
             setProducts, 
             filteredProducts, 
             searchQuery, 
-            setSearchQuery 
+            setSearchQuery,
+            selectedCategory,
+            setSelectedCategory,
+            categories
         }}>
             {children}
         </GlobalContext.Provider>
