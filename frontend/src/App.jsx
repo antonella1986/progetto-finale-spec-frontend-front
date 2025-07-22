@@ -1,7 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { GlobalProvider } from './context/GlobalContext'
 
-import './App.css'
 import DefaultLayout from './layout/DefaultLayout'
 import HomePage from './pages/HomePage'
 
