@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { GlobalContext } from "../context/GlobalContext";
 
 export default function Favourites() {
-    const { favouriteProducts } = useContext(GlobalContext);
+    const { favouriteProducts, removeFromFavourites } = useContext(GlobalContext);
 
     return (
         <>           
@@ -24,14 +24,15 @@ export default function Favourites() {
                                         <strong>{product.title}</strong>
                                     </h5>
                                     <p className="card-text">Categoria: {product.category}</p>
-                                    <div>
                                         <Link 
                                             to={`/products/${product.id}`} 
                                             className="btn btn-primary"
                                         >
                                             Dettagli
                                         </Link>
-                                    </div>
+                                    <button onClick={() => removeFromFavourites(product.id)} className="btn btn-lg">
+                                        🗑️
+                                    </button>
                                 </div>
                             </div>
                         </div>

@@ -73,7 +73,7 @@ export function useProduct() {
         )
     }, [favourites, products])
 
-    //FUNZIONE PER AGGIUNGERE E RIMUOVERE I PRODOTTI DAI PREFERITI
+    //FUNZIONE PER AGGIUNGERE I PRODOTTI DAI PREFERITI
     function addToFavourites(id) {
         if (favourites.includes(id)) {
             alert ('Questo prodotto è già nei tuoi preferiti!')
@@ -81,6 +81,18 @@ export function useProduct() {
             setFavourites([...favourites, id])
             alert ('Prodotto aggiunto ai preferiti!')
             localStorage.setItem('favourites', JSON.stringify([...favourites, id]));
+        }
+    }
+
+    //FUNZIONE PER RIMUOVERE I PRODOTTI DAI PREFERITI
+    function removeFromFavourites(id) {
+        if (favourites.includes(id)) {
+            const newFavourites = favourites.filter(favouriteId => favouriteId !== id);
+            setFavourites(newFavourites);
+            localStorage.setItem('favourites', JSON.stringify(newFavourites));
+            alert ('Prodotto rimosso dai preferiti!')
+        } else {
+            alert ('Questo prodotto non era nei tuoi preferiti!')
         }
     }
 
@@ -96,6 +108,7 @@ export function useProduct() {
         sortedProducts,
         setSortOrder,
         addToFavourites,
-        favouriteProducts
+        favouriteProducts,
+        removeFromFavourites
     };
 }
