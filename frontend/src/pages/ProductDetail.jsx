@@ -4,7 +4,7 @@ import { GlobalContext } from "../context/GlobalContext";
 
 export default function ProductDetail() {
     const { id } = useParams();
-    const { products } = useContext(GlobalContext);
+    const { products, addToFavourites } = useContext(GlobalContext);
     const [product, setProduct] = useState(null);
 
     useEffect(() => {
@@ -49,7 +49,7 @@ export default function ProductDetail() {
                         {product.isBio && <span className="badge bg-success ms-2 fs-6">BIO</span>}
                     </div>
                     
-                    <p className="lead text-primary fs-3">€{product.price}</p>
+                    <p className="lead text-primary fs-3">€ {product.price}</p>
                     
                     <div className="mb-3">
                         <h5><strong>Descrizione</strong></h5>
@@ -76,7 +76,7 @@ export default function ProductDetail() {
                         <button className="btn btn-primary btn-lg me-md-2">
                             Aggiungi al carrello
                         </button>
-                        <button className="btn btn-outline-danger btn-lg">
+                        <button onClick={() => addToFavourites(product.id)} className="btn btn-outline-danger btn-lg">
                             ❤️ Aggiungi ai preferiti
                         </button>
                     </div>

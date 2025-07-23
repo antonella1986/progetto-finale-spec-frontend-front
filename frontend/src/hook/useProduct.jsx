@@ -5,6 +5,7 @@ export function useProduct() {
     const [searchQuery, setSearchQuery] = useState("");
     const [selectedCategory, setSelectedCategory] = useState("");
     const [sortOrder, setSortOrder] = useState("title-asc");
+    const [favourites, setFavourites] = useState([]);
 
     useEffect(() => {
         async function fetchProducts() {
@@ -29,6 +30,17 @@ export function useProduct() {
         fetchProducts();
     }, []);
 
+    useEffect(() => {
+        //vado nel browser storage e cerco la chiave "favourites"
+        //se esiste, restituisce la stringa salvata, altrimenti restituisce null. il risultato viene salvato dentro saved
+        const saved = localStorage.getItem('favourites');
+        //se saved esiste, converto la stringa nell'array, altrimenti è null
+        const savedFavourites = saved ? JSON.parse(saved) : [];
+        //imposto lo stato favourites con i dati recuperati dal localStorage
+        setFavourites(savedFavourites)
+    }, []);
+
+    //FUNZIONE PER OTTENERE I PRODOTTI FILTRATI DALL'UTENTE
     const filteredProducts = useMemo(() => {
         return products.filter(product => {
             const matchesSearch = product.title.toLowerCase().includes(searchQuery.toLowerCase());
@@ -37,12 +49,13 @@ export function useProduct() {
         });
     }, [products, searchQuery, selectedCategory]);
 
-    //funzione per ottenere le categorie uniche per il dropdown
+    //FUNZIONE PER LA SELEZIONE DELLA CATEGORIA DALLA DROPDOWN
     const categories = useMemo(() => {
         const uniqueCategories = [...new Set(products.map(product => product.category))];
         return uniqueCategories.sort();
     }, [products]);
 
+    //FUNZIONE PER L'ORDINE ALFABETICO DEI PRODOTTI FILTRATI DALL'UTENTE
     const sortedProducts = useMemo (() => {
         if (sortOrder === "title-asc") {
             return [...filteredProducts].sort((a, b) => a.title.localeCompare(b.title));
@@ -52,6 +65,24 @@ export function useProduct() {
         //nel caso in cui sortOrder non sia né "title-asc" né "title-desc", restituisco i prodotti senza ordinamento, cioè filteredProducts
         return filteredProducts;
     }, [filteredProducts, sortOrder]);
+
+    //USEMEMO CON
+    const favouriteProducts = useMemo(() => {
+        return favourites.map(id =>
+            products.find(product => product.id === id)
+        )
+    }, [favourites, products])
+
+    //FUNZIONE PER AGGIUNGERE E RIMUOVERE I PRODOTTI DAI PREFERITI
+    function addToFavourites(id) {
+        if (favourites.includes(id)) {
+            alert ('Questo prodotto è già nei tuoi preferiti!')
+        } else {
+            setFavourites([...favourites, id])
+            alert ('Prodotto aggiunto ai preferiti!')
+            localStorage.setItem('favourites', JSON.stringify([...favourites, id]));
+        }
+    }
 
     return { 
         products, 
@@ -63,6 +94,8 @@ export function useProduct() {
         setSelectedCategory,
         categories,
         sortedProducts,
-        setSortOrder
+        setSortOrder,
+        addToFavourites,
+        favouriteProducts
     };
 }
