@@ -7,24 +7,26 @@ const GlobalProvider = ({ children }) => {
     const { 
         products, 
         setProducts, 
-        filteredProducts, 
+        sortedProducts, 
         searchQuery, 
         setSearchQuery,
         selectedCategory,
         setSelectedCategory,
-        categories
+        categories,
+        setSortOrder,
     } = useProduct();
 
     return(
         <GlobalContext.Provider value={{ 
             products, 
             setProducts, 
-            filteredProducts, 
+            sortedProducts, 
             searchQuery, 
             setSearchQuery,
             selectedCategory,
             setSelectedCategory,
-            categories
+            categories,
+            setSortOrder,
         }}>
             {children}
         </GlobalContext.Provider>

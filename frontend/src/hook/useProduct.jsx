@@ -4,6 +4,7 @@ export function useProduct() {
     const [products, setProducts] = useState([]);
     const [searchQuery, setSearchQuery] = useState("");
     const [selectedCategory, setSelectedCategory] = useState("");
+    const [sortOrder, setSortOrder] = useState("title-asc");
 
     useEffect(() => {
         async function fetchProducts() {
@@ -42,6 +43,16 @@ export function useProduct() {
         return uniqueCategories.sort();
     }, [products]);
 
+    const sortedProducts = useMemo (() => {
+        if (sortOrder === "title-asc") {
+            return [...filteredProducts].sort((a, b) => a.title.localeCompare(b.title));
+        } else if (sortOrder === "title-desc") {
+            return [...filteredProducts].sort((a, b) => b.title.localeCompare(a.title));
+        }
+        //nel caso in cui sortOrder non sia né "title-asc" né "title-desc", restituisco i prodotti senza ordinamento, cioè filteredProducts
+        return filteredProducts;
+    }, [filteredProducts, sortOrder]);
+
     return { 
         products, 
         setProducts, 
@@ -50,6 +61,8 @@ export function useProduct() {
         setSearchQuery,
         selectedCategory,
         setSelectedCategory,
-        categories
+        categories,
+        sortedProducts,
+        setSortOrder
     };
 }
