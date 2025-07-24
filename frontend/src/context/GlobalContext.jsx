@@ -17,7 +17,8 @@ const GlobalProvider = ({ children }) => {
         addToFavourites,
         favouriteProducts,
         removeFromFavourites,
-        addToCompare
+        addToCompare,
+        removeFromCompare
     } = useProduct();
 
     return(
@@ -34,7 +35,8 @@ const GlobalProvider = ({ children }) => {
             addToFavourites,
             favouriteProducts,
             removeFromFavourites,
-            addToCompare
+            addToCompare,
+            removeFromCompare
         }}>
             {children}
         </GlobalContext.Provider>

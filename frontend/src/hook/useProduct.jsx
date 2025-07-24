@@ -44,6 +44,17 @@ export function useProduct() {
         setFavourites(savedFavourites)
     }, []);
 
+    //FUNZIONE PER CARICARE I PRODOTTI DEL COMPARATORE QUANDO L'UTENTE RIAPRE IL SITO
+    useEffect(() => {
+        //vado nel browser storage e cerco la chiave "compareList"
+        //se esiste, restituisce la stringa salvata, altrimenti restituisce null. il risultato viene salvato dentro savedKey
+        const savedKey = localStorage.getItem('compareList');
+        //se savedKey esiste, converto la stringa nell'array, altrimenti è null
+        const savedCompareList = savedKey ? JSON.parse(savedKey) : [];
+        //imposto lo stato compareList con i dati recuperati dal localStorage
+        setCompareList(savedCompareList)
+    }, []);
+
     //FUNZIONE PER OTTENERE I PRODOTTI FILTRATI DALL'UTENTE
     const filteredProducts = useMemo(() => {
         return products.filter(product => {
@@ -132,6 +143,19 @@ export function useProduct() {
             ).filter(Boolean);
     }, [compareList, products])
 
+    //FUNZIONE PER RIMUOVERE I PRODOTTI DAI PREFERITI
+    function removeFromCompare(id) {
+        if (compareList.includes(id)) {
+            const newRemovedComparedList = compareList.filter(compareId => compareId !== id);
+            setCompareList(newRemovedComparedList);
+            localStorage.setItem('compareList', JSON.stringify(newRemovedComparedList));
+            alert ('Prodotto rimosso dal comparatore. Aggiungine uno per confrontarlo con un altro prodotto!')
+            navigate('/products')
+        } else {
+            alert ('Questo prodotto non era nel tuo comparatore!')
+        }
+    }
+
     return { 
         products, 
         setProducts, 
@@ -146,6 +170,8 @@ export function useProduct() {
         addToFavourites,
         favouriteProducts,
         removeFromFavourites,
-        addToCompare
+        addToCompare,
+        compareProducts,
+        removeFromCompare
     };
 }
