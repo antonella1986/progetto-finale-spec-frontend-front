@@ -17,6 +17,7 @@ const GlobalProvider = ({ children }) => {
         addToFavourites,
         favouriteProducts,
         removeFromFavourites,
+        compareProducts,
         addToCompare,
         removeFromCompare
     } = useProduct();
@@ -35,6 +36,7 @@ const GlobalProvider = ({ children }) => {
             addToFavourites,
             favouriteProducts,
             removeFromFavourites,
+            compareProducts,
             addToCompare,
             removeFromCompare
         }}>

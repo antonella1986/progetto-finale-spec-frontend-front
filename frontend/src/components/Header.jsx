@@ -17,6 +17,9 @@ export default function Header() {
                             <Link className="text-decoration-none px-3" to={'/products'}>Prodotti</Link>
                         </li>
                     </ul>
+                    <Link to="/comparing" className="text-decoration-none">
+                        ⚖️
+                    </Link>
                     <Link to="/favourites" className="text-decoration-none">
                         ❤️
                     </Link>

@@ -20,7 +20,7 @@ function App() {
               <Route path='/products' element={<ProductList />} />
               <Route path='/products/:id' element={<ProductDetail />} />
               <Route path='/favourites' element={<Favourites/>} />
-              <Route path='/compare' element={<Comparator/>} />
+              <Route path='/comparing' element={<Comparator/>} />
             </Route>
           </Routes>
         </BrowserRouter>

@@ -1,11 +1,12 @@
-import { useParams, NavLink } from "react-router-dom";
+import { useParams, NavLink, useNavigate } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { GlobalContext } from "../context/GlobalContext";
 
 export default function ProductDetail() {
     const { id } = useParams();
-    const { products, addToFavourites } = useContext(GlobalContext);
+    const { products, addToFavourites, addToCompare } = useContext(GlobalContext);
     const [product, setProduct] = useState(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const foundProduct = products.find(p => p.id === parseInt(id));
@@ -76,8 +77,11 @@ export default function ProductDetail() {
                         <button className="btn btn-primary btn-lg me-md-2">
                             Aggiungi al carrello
                         </button>
-                        <button onClick={() => addToFavourites(product.id)} className="btn btn-outline-danger btn-lg">
+                        <button onClick={() => addToFavourites(product.id)} className="btn btn-outline-danger btn-lg me-md-2">
                             ❤️ Aggiungi ai preferiti
+                        </button>
+                        <button onClick={() => addToCompare(product.id, navigate)} className="btn btn-outline-info btn-lg">
+                            ⚖️ Confronta
                         </button>
                     </div>
                 </div>

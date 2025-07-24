@@ -1,5 +1,4 @@
 import { useState, useEffect, useMemo } from "react";
-import { useNavigate } from "react-router-dom";
 
 export function useProduct() {
     const [products, setProducts] = useState([]);
@@ -8,7 +7,6 @@ export function useProduct() {
     const [sortOrder, setSortOrder] = useState("title-asc");
     const [favourites, setFavourites] = useState([]);
     const [compareList, setCompareList] = useState([]);
-    const navigate = useNavigate();
 
     useEffect(() => {
         async function fetchProducts() {
@@ -115,7 +113,7 @@ export function useProduct() {
     }
 
     //FUNZIONE PER AGGIUNGERE I PRODOTTI ALLA COMPARAZIONE
-    function addToCompare(id) {
+    function addToCompare(id, navigate) {
         if(compareList.includes(id)) {
             alert ('Hai già aggiunto questo prodotto per il confronto!')
         } else if (compareList.length >= 2) {
@@ -143,14 +141,18 @@ export function useProduct() {
             ).filter(Boolean);
     }, [compareList, products])
 
-    //FUNZIONE PER RIMUOVERE I PRODOTTI DAI PREFERITI
-    function removeFromCompare(id) {
+    //FUNZIONE PER RIMUOVERE I PRODOTTI DAL COMPARATORE
+    function removeFromCompare(id, navigate = null) {
         if (compareList.includes(id)) {
             const newRemovedComparedList = compareList.filter(compareId => compareId !== id);
             setCompareList(newRemovedComparedList);
             localStorage.setItem('compareList', JSON.stringify(newRemovedComparedList));
-            alert ('Prodotto rimosso dal comparatore. Aggiungine uno per confrontarlo con un altro prodotto!')
-            navigate('/products')
+            alert ('Prodotto rimosso dal comparatore!')
+            
+            // Solo se navigate esiste e non rimane nessun prodotto, naviga alla pagina products
+            if (navigate && newRemovedComparedList.length === 0) {
+                navigate('/products')
+            }
         } else {
             alert ('Questo prodotto non era nel tuo comparatore!')
         }
