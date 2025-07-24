@@ -16,7 +16,8 @@ const GlobalProvider = ({ children }) => {
         setSortOrder,
         addToFavourites,
         favouriteProducts,
-        removeFromFavourites
+        removeFromFavourites,
+        addToCompare
     } = useProduct();
 
     return(
@@ -32,7 +33,8 @@ const GlobalProvider = ({ children }) => {
             setSortOrder,
             addToFavourites,
             favouriteProducts,
-            removeFromFavourites
+            removeFromFavourites,
+            addToCompare
         }}>
             {children}
         </GlobalContext.Provider>

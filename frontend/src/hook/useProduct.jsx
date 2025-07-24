@@ -1,4 +1,5 @@
 import { useState, useEffect, useMemo } from "react";
+import { useNavigate } from "react-router-dom";
 
 export function useProduct() {
     const [products, setProducts] = useState([]);
@@ -6,6 +7,8 @@ export function useProduct() {
     const [selectedCategory, setSelectedCategory] = useState("");
     const [sortOrder, setSortOrder] = useState("title-asc");
     const [favourites, setFavourites] = useState([]);
+    const [compareList, setCompareList] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         async function fetchProducts() {
@@ -30,6 +33,7 @@ export function useProduct() {
         fetchProducts();
     }, []);
 
+    //FUNZIONE PER SALVARE I PRODOTTI NEL LOCAL STORAGE
     useEffect(() => {
         //vado nel browser storage e cerco la chiave "favourites"
         //se esiste, restituisce la stringa salvata, altrimenti restituisce null. il risultato viene salvato dentro saved
@@ -66,14 +70,17 @@ export function useProduct() {
         return filteredProducts;
     }, [filteredProducts, sortOrder]);
 
-    //USEMEMO CON
+    //FUNZIONE PER TRASFORMARE GLI ID DEI PRODOTTI IN OGGETTI PER LA PAGINA DEI PREFERITI
     const favouriteProducts = useMemo(() => {
+        //aspetta che products si carichi
+        if (products.length === 0) return [];
         return favourites.map(id =>
             products.find(product => product.id === id)
-        )
+        //rimuove undefined    
+        ).filter(Boolean);
     }, [favourites, products])
 
-    //FUNZIONE PER AGGIUNGERE I PRODOTTI DAI PREFERITI
+    //FUNZIONE PER AGGIUNGERE I PRODOTTI AI PREFERITI
     function addToFavourites(id) {
         if (favourites.includes(id)) {
             alert ('Questo prodotto è già nei tuoi preferiti!')
@@ -96,6 +103,35 @@ export function useProduct() {
         }
     }
 
+    //FUNZIONE PER AGGIUNGERE I PRODOTTI ALLA COMPARAZIONE
+    function addToCompare(id) {
+        if(compareList.includes(id)) {
+            alert ('Hai già aggiunto questo prodotto per il confronto!')
+        } else if (compareList.length >= 2) {
+            alert ('Non puoi inserire più di due prodotti!')
+        } else {
+            const newComparedList = [...compareList, id];
+            setCompareList(newComparedList)
+            alert ('Prodotto aggiunto al confronto!')
+            localStorage.setItem('compareList', JSON.stringify([...compareList, id]))
+            if (newComparedList.length === 2) {
+                navigate('/comparing')
+            }
+        }
+    }
+
+    //FUNZIONE PER TRASFORMARE GLI ID DEI PRODOTTI IN OGGETTI PER LA PAGINA DELLA COMPARAZIONE
+    const compareProducts = useMemo(() => {
+        //controlla se l'array products è vuoto (ancora in caricamento dal server). Se è vuoto, restituisce un array vuoto [] per evitare errori.
+        if (products.length === 0) return [];
+        //prende l'array compareList (che contiene solo ID) e, per ogni ID...
+            return compareList.map(id =>
+                //...cerca nell'array products il prodotto che ha quell'ID. find() restituisce l'oggetto prodotto completo o undefined se non lo trova
+                products.find(product => product.id === id)
+            //rimuove undefined (nel caso un ID non corrisponda a nessun prodotto). filter(Boolean) tiene solo i valori "veri"
+            ).filter(Boolean);
+    }, [compareList, products])
+
     return { 
         products, 
         setProducts, 
@@ -109,6 +145,7 @@ export function useProduct() {
         setSortOrder,
         addToFavourites,
         favouriteProducts,
-        removeFromFavourites
+        removeFromFavourites,
+        addToCompare
     };
 }
