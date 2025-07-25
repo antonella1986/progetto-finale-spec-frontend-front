@@ -84,6 +84,7 @@
   }
   .container-icons span {
     height: 60px;
+    line-height: normal;
     display: flex;
     align-items: center;
     justify-content: center;

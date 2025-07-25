@@ -28,7 +28,7 @@ export default function HomePage() {
                     </div>
                     <div className="container-icons">
                         <img src="/img/rispettoso.svg" className="icon-home" alt="sostenibile" />
-                        <span>Rispettoso del nostro pianeta</span>
+                        <span>Sostenitore del nostro pianeta</span>
                     </div>
                 </div>
             </section>
