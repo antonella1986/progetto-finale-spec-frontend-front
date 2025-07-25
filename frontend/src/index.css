@@ -23,50 +23,86 @@
 }
 
 .jumbotron {
-    padding: 3rem 1rem;
-    margin-bottom: 2rem;
-    background-color: var(--primary);
-    border-radius: 0.3rem;
+    padding: 8rem 10rem;
+    background-image: url('/img/jumbotron.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     color: var(--light);
+    position: relative;
+    
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.6);
+        border-radius: 0.3rem;
+        z-index: 1;
+    }
+    
     .btn-jumbo {
-        background-color: var(--secondary);
-        color: var(--dark);
+      margin-top: 2rem;
+      background-color: var(--primary);
+      color: var(--light);
+      position: relative;
+      z-index: 2;
     }
     .container-jumbo {
-      padding-right: 40rem;
+      position: relative;
+      z-index: 2;
     }
+}
+
+.container1 {
+  padding: 3rem 5rem;
+  background-color: var(--primary);
+  color: var(--light);
+  font-size: 25px;
+  .icons {
+    padding-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+  }
+  .icon-home {
+    width: 150px;
+    height: auto;
+  }
 }
 
 .container2 {
-  padding-left: 3rem;
+  padding: 3rem 6rem;
+  .carousel {
+      margin-bottom: 4rem;
+      max-width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
+      .carousel-item {
+          height: 520px;
+          img {
+            width: 100%;
+            height: 400px;
+            object-fit: contain;
+            object-position: center;
+          }
+          .carousel-caption {
+            position: absolute;
+            left: 50%;
+            right: auto;
+            transform: translateX(-50%);
+            padding: 10px;
+            color: var(--dark);
+            border-radius: 5px;
+            width: auto;
+            max-width: 80%;
+            text-align: center;
+          }
+      }
+  } 
 }
 
-.carousel {
-    margin-bottom: 4rem;
-    max-width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
-    .carousel-item {
-        height: 520px;
-        img {
-          width: 100%;
-          height: 400px;
-          object-fit: contain;
-          object-position: center;
-        }
-        .carousel-caption {
-          position: absolute;
-          left: 50%;
-          right: auto;
-          transform: translateX(-50%);
-          padding: 10px;
-          color: var(--dark);
-          border-radius: 5px;
-          width: auto;
-          max-width: 80%;
-          text-align: center;
-        }
-    }
-}
 
 
