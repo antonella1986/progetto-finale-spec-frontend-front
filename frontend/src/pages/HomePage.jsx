@@ -18,9 +18,18 @@ export default function HomePage() {
                     OrtoPuglia è un omaggio alle stagioni, ai sapori autentici e alle radici che ci legano alla nostra terra. <br /> Un progetto semplice, fatto con il cuore, per portare sulla tua tavola un pezzetto di Puglia.</p>
                 </div>
                 <div className="icons">
-                    <img src="/img/genuino.svg" className="icon-home" alt="genuino" />
-                    <img src="/img/familiare.svg" className="icon-home" alt="familiare" />
-                    <img src="/img/rispettoso.svg" className="icon-home" alt="sostenibile" />
+                    <div className="container-icons">
+                        <img src="/img/genuino.svg" className="icon-home" alt="genuino" />
+                        <span>Genuino come le nostre terre</span>
+                    </div>
+                    <div className="container-icons">
+                        <img src="/img/familiare.svg" className="icon-home" alt="familiare" />
+                        <span>Dalla tradizione della nostra famiglia</span>
+                    </div>
+                    <div className="container-icons">
+                        <img src="/img/rispettoso.svg" className="icon-home" alt="sostenibile" />
+                        <span>Rispettoso del nostro pianeta</span>
+                    </div>
                 </div>
             </section>
             <section className="container2">
