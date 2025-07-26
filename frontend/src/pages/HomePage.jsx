@@ -35,8 +35,8 @@ export default function HomePage() {
                 </div>
             </section>
             <section className="container2">
-                <h2><strong>I prodotti della stagione</strong></h2>
-                <h3>Lasciati tentare dalla freschezza estiva di Puglia</h3>
+                <h2 className='container2-title'><strong>I prodotti della stagione</strong></h2>
+                <p>Lasciati tentare dalla freschezza estiva pugliese</p>
                 <div id="carouselExampleDark" className="carousel carousel-dark slide" data-bs-ride="carousel">
                     <div className="carousel-inner">
                         <div className="carousel-item active" data-bs-interval="4000">
@@ -44,7 +44,7 @@ export default function HomePage() {
                                 <img src="https://www.cuki.it/wp-content/uploads/come-conservare-zucchine.jpg" className="d-block w-100" alt="Zucchina Barese"/>
                             </Link>
                             <div className="carousel-caption d-none d-md-block">
-                                <h4>Zucchina Barese</h4>
+                                <h4><strong>Zucchina Barese</strong></h4>
                                 <p>Zucchina dolce e tenera, tipica del barese.</p>
                             </div>
                         </div>
@@ -53,7 +53,7 @@ export default function HomePage() {
                                 <img src="https://www.carrefour.it/on/demandware.static/-/Sites-carrefour-master-catalog-IT/default/dwa2cf319a/large/CETRIOLIBARATTIERISF-2117743000000-1.jpg" className="d-block w-100" alt="Barattiere di Santeramo"/>
                             </Link>
                             <div className="carousel-caption d-none d-md-block">
-                                <h4>Barattiere di Santeramo</h4>
+                                <h4><strong>Barattiere di Santeramo</strong></h4>
                                 <p>Frutto simile al cetriolo, ma più dolce e croccante.</p>
                             </div>
                         </div>
@@ -62,7 +62,7 @@ export default function HomePage() {
                                 <img src="https://www.ortofruttacagranda.com/wp-content/uploads/2020/11/cipolla-di-acquaviva.jpg" className="d-block w-100" alt="Cipolla rossa di Acquaviva"/>
                             </Link>
                             <div className="carousel-caption d-none d-md-block">
-                                <h4>Cipolla rossa di Acquaviva</h4>
+                                <h4><strong>Cipolla rossa di Acquaviva</strong></h4>
                                 <p>Dolce, croccante, ottima sia cruda che cotta.</p>
                             </div>
                         </div>
