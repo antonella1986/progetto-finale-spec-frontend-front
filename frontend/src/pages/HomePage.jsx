@@ -38,11 +38,6 @@ export default function HomePage() {
                 <h2><strong>I prodotti della stagione</strong></h2>
                 <h3>Lasciati tentare dalla freschezza estiva di Puglia</h3>
                 <div id="carouselExampleDark" className="carousel carousel-dark slide" data-bs-ride="carousel">
-                    <div className="carousel-indicators">
-                        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
-                        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                    </div>
                     <div className="carousel-inner">
                         <div className="carousel-item active" data-bs-interval="4000">
                             <Link to="/products/2">
@@ -81,9 +76,14 @@ export default function HomePage() {
                         <span className="visually-hidden">Next</span>
                     </button>
                 </div>
+            <section className='container2-5'>
+                <div>
+                    <a className="btn btn-jumbo btn-lg" href="/products" role="button"><strong>Scopri tutti i nostri prodotti</strong></a>
+                </div>
+            </section>
             </section>
             <section className='container3'>
-                <img src="/img/family.jpeg" className='img-family' alt="" srcset="" />
+                <img src="/img/family.jpg" className='img-family' alt="" srcset="" />
                 <div className='descr-family'>
                     <h2><strong>Questa siamo noi.</strong></h2>
                     <p>Una famiglia unita dall'amore per la terra e i suoi frutti. Ogni raccolto è il risultato di giornate di lavoro, mani sporche di terra e passione che si tramanda da generazioni. <br /> <br />

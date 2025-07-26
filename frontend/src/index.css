@@ -94,6 +94,9 @@
 
 .container2 {
   padding: 3rem 6rem 0;
+  .carousel-dark {
+    margin-bottom: 0 !important;
+  }
   .carousel {
       margin-bottom: 4rem;
       max-width: 1000px;
@@ -119,8 +122,19 @@
             max-width: 80%;
             text-align: center;
           }
-      }
-  } 
+        }
+      } 
+}
+
+.container2-5 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+    .btn-jumbo {
+      background-color: var(--tertiary);
+      color: var(--light);
+      margin-bottom: 4rem;;
+    }
 }
 
 .container3 {
@@ -132,7 +146,10 @@
   align-items: center;
   gap: 2rem;
   .img-family {
-    max-height: 400px;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    object-fit: cover;
   }
   .descr-family {
     font-size: 18px;
