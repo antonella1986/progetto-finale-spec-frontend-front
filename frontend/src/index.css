@@ -93,7 +93,7 @@
 }
 
 .container2 {
-  padding: 3rem 6rem;
+  padding: 3rem 6rem 0;
   .carousel {
       margin-bottom: 4rem;
       max-width: 1000px;
@@ -121,6 +121,26 @@
           }
       }
   } 
+}
+
+.container3 {
+  background-color: var(--dark);
+  min-height: 650px;
+  padding: 0 6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  .img-family {
+    max-height: 400px;
+  }
+  .descr-family {
+    font-size: 18px;
+    color: var(--light);
+    h2 {
+      padding-bottom: 1rem;;
+    }
+  }
 }
 
 

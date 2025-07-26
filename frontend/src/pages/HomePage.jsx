@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 export default function HomePage() {
     return (
         <>
@@ -33,7 +35,8 @@ export default function HomePage() {
                 </div>
             </section>
             <section className="container2">
-                <h2>I prodotti della stagione</h2>
+                <h2><strong>I prodotti della stagione</strong></h2>
+                <h3>Lasciati tentare dalla freschezza estiva di Puglia</h3>
                 <div id="carouselExampleDark" className="carousel carousel-dark slide" data-bs-ride="carousel">
                     <div className="carousel-indicators">
                         <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
@@ -42,21 +45,27 @@ export default function HomePage() {
                     </div>
                     <div className="carousel-inner">
                         <div className="carousel-item active" data-bs-interval="4000">
-                            <img src="https://www.cuki.it/wp-content/uploads/come-conservare-zucchine.jpg" className="d-block w-100" alt="Zucchina Barese"/>
+                            <Link to="/products/2">
+                                <img src="https://www.cuki.it/wp-content/uploads/come-conservare-zucchine.jpg" className="d-block w-100" alt="Zucchina Barese"/>
+                            </Link>
                             <div className="carousel-caption d-none d-md-block">
                                 <h4>Zucchina Barese</h4>
                                 <p>Zucchina dolce e tenera, tipica del barese.</p>
                             </div>
                         </div>
                         <div className="carousel-item" data-bs-interval="4000">
-                            <img src="https://www.carrefour.it/on/demandware.static/-/Sites-carrefour-master-catalog-IT/default/dwa2cf319a/large/CETRIOLIBARATTIERISF-2117743000000-1.jpg" className="d-block w-100" alt="Barattiere di Santeramo"/>
+                            <Link to="/products/3">
+                                <img src="https://www.carrefour.it/on/demandware.static/-/Sites-carrefour-master-catalog-IT/default/dwa2cf319a/large/CETRIOLIBARATTIERISF-2117743000000-1.jpg" className="d-block w-100" alt="Barattiere di Santeramo"/>
+                            </Link>
                             <div className="carousel-caption d-none d-md-block">
                                 <h4>Barattiere di Santeramo</h4>
                                 <p>Frutto simile al cetriolo, ma più dolce e croccante.</p>
                             </div>
                         </div>
                         <div className="carousel-item" data-bs-interval="4000">
-                            <img src="https://www.ortofruttacagranda.com/wp-content/uploads/2020/11/cipolla-di-acquaviva.jpg" className="d-block w-100" alt="Cipolla rossa di Acquaviva"/>
+                            <Link to="/products/9">
+                                <img src="https://www.ortofruttacagranda.com/wp-content/uploads/2020/11/cipolla-di-acquaviva.jpg" className="d-block w-100" alt="Cipolla rossa di Acquaviva"/>
+                            </Link>
                             <div className="carousel-caption d-none d-md-block">
                                 <h4>Cipolla rossa di Acquaviva</h4>
                                 <p>Dolce, croccante, ottima sia cruda che cotta.</p>
@@ -73,8 +82,15 @@ export default function HomePage() {
                     </button>
                 </div>
             </section>
-            <section>
-                <p>Contenuto3</p>
+            <section className='container3'>
+                <img src="/img/family.jpeg" className='img-family' alt="" srcset="" />
+                <div className='descr-family'>
+                    <h2><strong>Questa siamo noi.</strong></h2>
+                    <p>Una famiglia unita dall'amore per la terra e i suoi frutti. Ogni raccolto è il risultato di giornate di lavoro, mani sporche di terra e passione che si tramanda da generazioni. <br /> <br />
+                    Con OrtoPuglia vogliamo raccontare tutto questo: non solo offrendo prodotti ortofrutticoli tipici della nostra regione, ma anche aiutandoti a conoscerli davvero.
+                    Grazie al nostro comparatore, puoi confrontare sapori, varietà, origini e scoprire le eccellenze pugliesi come non le hai mai viste. <br /> <br />
+                    Perché scegliere con consapevolezza è il primo passo per gustare la qualità.</p>
+                </div>
             </section>
         </>
     );
