@@ -177,6 +177,10 @@
   height: 520px;
 }
 
+.carousel-item:hover {
+    transform: scale(1.1);
+}
+
 .container2 .carousel .carousel-item img {
   width: 100%;
   height: 400px;
@@ -211,6 +215,12 @@
   background-color: var(--tertiary);
   color: var(--light);
   margin-bottom: 4rem;
+}
+
+.btn-jumbo:hover {
+  transform: scale(1.1);
+  transition: all 0.5s ease;
+  box-shadow: 0 2px 8px rgba(87, 195, 47, 0.3);
 }
 
 /* #endregion CONTAINER 2.5 */
