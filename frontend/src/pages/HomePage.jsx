@@ -6,7 +6,7 @@ export default function HomePage() {
             <div className="jumbotron jumbotron-fluid">
                 <div className="container container-jumbo">
                     <h1 className="display-3"><strong>OrtoPuglia</strong></h1>
-                    <p className="lead">I sapori di casa.</p>
+                    <p className="lead">L'autenticità della Puglia direttamente sulla tua tavola. Genuinità, tradizione e passione per la terra.</p>
                     <p className="lead">
                         <a className="btn btn-jumbo btn-lg" href="/products" role="button"><strong>Scopri i nostri prodotti</strong></a>
                     </p>
@@ -71,7 +71,7 @@ export default function HomePage() {
                         <span className="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span className="visually-hidden">Previous</span>
                     </button>
-                    <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+                    <button className="carousel-control-next" type="button"         data-bs-target="#carouselExampleDark" data-bs-slide="next">
                         <span className="carousel-control-next-icon" aria-hidden="true"></span>
                         <span className="visually-hidden">Next</span>
                     </button>

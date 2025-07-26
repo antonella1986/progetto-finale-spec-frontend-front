@@ -20,9 +20,58 @@
   --darkest: rgb(31, 8, 4);
 }
 
+/* #region HEADER */
+
 .container-fluid {
     display: flex;
-}
+    background-color: var(--dark);
+    padding: 2rem;
+  }
+
+  .products-link {
+    color: var(--light);
+    padding-left: 3rem;
+    font-size: 20px;
+    position: relative;
+    transition: all 0.3s ease;
+    overflow: hidden;
+  }
+
+  .products-link::before {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 3rem;
+    width: 0;
+    height: 1px;
+    background: var(--primary);
+    transition: width 0.4s ease;
+    border-radius: 2px;
+  }
+
+  .products-link:hover {
+    color: var(--primary);
+    transform: translateY(-2px);
+    text-shadow: 0 2px 8px rgba(87, 195, 47, 0.3);
+  }
+
+  .products-link:hover::before {
+    width: calc(100% - 3rem);
+  }
+
+  .preferiti {
+    width: 40px;
+    height: auto;
+    transition: all 0.3s ease;
+    filter: brightness(0.9);
+  }
+
+  .preferiti:hover {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+  }
+
+/* #endregion HEADER */
 
 /* #region JUMBOTRON */
 

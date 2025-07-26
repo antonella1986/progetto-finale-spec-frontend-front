@@ -1,19 +1,23 @@
 import { Link } from 'react-router-dom';
+import logo from '../../public/img/logo-exp-png.png';
 
 export default function Footer() {
     return (
         <footer className="footer">
             <div className="footer-content">
                 <div className="footer-section">
-                    <h3><strong>OrtoPuglia</strong></h3>
-                    <p>I sapori autentici della Puglia direttamente sulla tua tavola. Genuinità, tradizione e passione per la terra.</p>
-                    <div className="social-links">
+                <Link className="text-decoration-none active" to={'/'}>
+                    <img className="logo" src={logo} alt="Logo" style={{height: '80px'}} />
+                </Link>
+                <p className='pt-5 pb-3'>L'autenticità della Puglia direttamente sulla tua tavola. Genuinità, tradizione e passione per la terra.</p>
+                    <div className="social-links pb-3">
                         <a href="#" aria-label="Facebook"><i className="fab fa-facebook-f"></i></a>
                         <a href="#" aria-label="Instagram"><i className="fab fa-instagram"></i></a>
                         <a href="#" aria-label="Twitter"><i className="fab fa-twitter"></i></a>
                         <a href="#" aria-label="YouTube"><i className="fab fa-youtube"></i></a>
                     </div>
                 </div>
+
                 
                 <div className="footer-section">
                     <h4>Prodotti</h4>
