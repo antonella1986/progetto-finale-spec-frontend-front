@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 import { GlobalContext } from "../context/GlobalContext";
 
 export default function Comparator() {
@@ -68,13 +69,25 @@ export default function Comparator() {
                             <tr className="table-row">
                                 <td><strong>AZIONI</strong></td>
                                 <td className="text-center">
+                                    <Link 
+                                        to={`/products/${compareProducts[0].id}`} 
+                                        className="btn btn-products me-2"
+                                    >
+                                        Dettagli
+                                    </Link>
                                     <button onClick={() => removeFromCompare(compareProducts[0].id)} 
-                                            className="btn btn-remove">Rimuovi</button>
+                                            className="btn btn-remove me-2">Rimuovi</button>
                                 </td>
                                 {compareProducts[1] && (
                                     <td className="text-center">
+                                        <Link 
+                                            to={`/products/${compareProducts[1].id}`} 
+                                            className="btn btn-products me-2"
+                                        >
+                                            Dettagli
+                                        </Link>
                                         <button onClick={() => removeFromCompare(compareProducts[1].id)} 
-                                                className="btn btn-remove">Rimuovi</button>
+                                                className="btn btn-remove me-2">Rimuovi</button>
                                     </td>
                                 )}
                             </tr>

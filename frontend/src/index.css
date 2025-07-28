@@ -323,11 +323,48 @@
 
 /* #endregion COMPARATOR */
 
-/* #region FAVOURITES */
+/* #region PRODUCT DETAIL */
 
+.buttons {
+  font-size: 18px;
+}
 
+.btn-products:hover img {
+  filter: brightness(0) saturate(100%) invert(60%) sepia(55%) saturate(464%) hue-rotate(71deg) brightness(98%) contrast(89%);
+}
 
-/* #endregion FAVOURITES */
+.btn-remove:hover img {
+  filter: brightness(0) saturate(100%) invert(17%) sepia(100%) saturate(3207%) hue-rotate(2deg) brightness(97%) contrast(93%);
+}
+
+.btn-compare {
+  background-color: var(--tertiary);
+  color: var(--light);
+}
+
+.btn-compare:hover {
+  transform: scale(1.1);
+  transition: all 0.5s ease-in-out;
+  box-shadow: 0 2px 8px rgba(250, 131, 0, 0.3);
+  filter: brightness(0) saturate(100%) invert(48%) sepia(79%) saturate(2476%) hue-rotate(26deg) brightness(118%) contrast(119%);
+}
+
+.btn-back {
+  background-color: var(--dark) !important;
+  color: var(--light) !important;
+}
+
+.btn-back:hover {
+  transform: scale(1.1);
+  transition: all 0.5s ease-in-out;
+  box-shadow: 0 2px 8px rgba(121, 0, 250, 0.3);
+}
+
+.price {
+  color: var(--tertiary);
+}
+
+/* #endregion PRODUCT DETAIL */
 
 /* #region FOOTER */
 
