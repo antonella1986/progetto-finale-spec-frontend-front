@@ -33,7 +33,6 @@ export default function Footer() {
                         <li><Link to="/about">Chi siamo</Link></li>
                         <li><Link to="/story">La nostra storia</Link></li>
                         <li><Link to="/sustainability">Sostenibilità</Link></li>
-                        <li><Link to="/contact">Contatti</Link></li>
                     </ul>
                 </div>
                 

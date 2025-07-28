@@ -296,6 +296,33 @@
 
 /* #endregion PRODUCT LIST */
 
+/* #region COMPARATOR */
+
+.table-row {
+  background-color: rgba(42, 211, 0, 0.116) !important;
+}
+
+.table-row td {
+  background-color: rgba(42, 211, 0, 0.116) !important;
+}
+
+.table-row th {
+  background-color: rgba(42, 211, 0, 0.116) !important;
+}
+
+.btn-remove {
+  background-color: var(--red);
+  color: var(--light);
+}
+
+.btn-remove:hover {
+  transform: scale(1.1);
+  transition: all 0.5s ease-in-out;
+  box-shadow: 0 2px 8px rgba(255, 0, 0, 0.3);
+}
+
+/* #endregion COMPARATOR */
+
 /* #region FOOTER */
 
 .footer {

@@ -6,12 +6,12 @@ export default function Comparator() {
 
     return (
         <>
-            <h1 className="text-center mb-4">Confronta due prodotti</h1>
+            <h1 className="text-center mb-5 mt-5"><strong>Confronta due prodotti</strong></h1>
             <div className="container">
                 {compareProducts.length >= 1 ? (
-                    <table className="table table-bordered">
+                    <table className="table table-bordered mb-5">
                         <thead>
-                            <tr>
+                            <tr className="table-row">
                                 <th width="20%">PRODOTTO</th>
                                 <th width="40%" className="text-center">
                                     {compareProducts[0].title}
@@ -25,7 +25,7 @@ export default function Comparator() {
                         </thead>
                         <tbody>
                             <tr>
-                                <td><strong>Immagine</strong></td>
+                                <td><strong>IMMAGINE</strong></td>
                                 <td className="text-center">
                                     <img src={compareProducts[0].imageUrl} alt={compareProducts[0].title} 
                                         style={{maxHeight: '200px', objectFit: 'cover'}} />
@@ -37,44 +37,44 @@ export default function Comparator() {
                                     </td>
                                 )}
                             </tr>
-                            <tr>
-                                <td><strong>Prezzo</strong></td>
+                            <tr className="table-row">
+                                <td><strong>PREZZO</strong></td>
                                 <td className="text-center">€ {compareProducts[0].price}</td>
                                 {compareProducts[1] && (
                                     <td className="text-center">€ {compareProducts[1].price}</td>
                                 )}
                             </tr>
                             <tr>
-                                <td><strong>Categoria</strong></td>
+                                <td><strong>CATEGORIA</strong></td>
                                 <td className="text-center">{compareProducts[0].category}</td>
                                 {compareProducts[1] && (
                                     <td className="text-center">{compareProducts[1].category}</td>
                                 )}
                             </tr>
-                            <tr>
-                                <td><strong>Descrizione</strong></td>
+                            <tr className="table-row">
+                                <td><strong>DESCRIZIONE</strong></td>
                                 <td className="text-center">{compareProducts[0].description}</td>
                                 {compareProducts[1] && (
                                     <td className="text-center">{compareProducts[1].description}</td>
                                 )}
                             </tr>
                             <tr>
-                                <td><strong>Marca</strong></td>
+                                <td><strong>AZIENDA</strong></td>
                                 <td className="text-center">{compareProducts[0].brand}</td>
                                 {compareProducts[1] && (
                                     <td className="text-center">{compareProducts[1].brand}</td>
                                 )}
                             </tr>                                                 
-                            <tr>
-                                <td><strong>Azioni</strong></td>
+                            <tr className="table-row">
+                                <td><strong>AZIONI</strong></td>
                                 <td className="text-center">
                                     <button onClick={() => removeFromCompare(compareProducts[0].id)} 
-                                            className="btn btn-danger">Rimuovi</button>
+                                            className="btn btn-remove">Rimuovi</button>
                                 </td>
                                 {compareProducts[1] && (
                                     <td className="text-center">
                                         <button onClick={() => removeFromCompare(compareProducts[1].id)} 
-                                                className="btn btn-danger">Rimuovi</button>
+                                                className="btn btn-remove">Rimuovi</button>
                                     </td>
                                 )}
                             </tr>
