@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, useCallback } from "react";
 
 export function useProduct() {
     const [products, setProducts] = useState([]);
@@ -158,6 +158,25 @@ export function useProduct() {
         }
     }
 
+    //DEBOUNCE PER LA RICERCA
+    //dichiarazione funzione debounce
+    function debounce (callback, delay) {
+        let timeout
+        return (...args) => {
+            clearTimeout(timeout)
+            timeout = setTimeout(()=> {
+                callback(...args)
+            }, delay)
+        }
+    }
+
+    //uso funzione debounce
+    const debounceSearch = useCallback (
+        debounce((value) => {
+            setSearchQuery(value)
+        }, 500),
+    [])
+
     return { 
         products, 
         setProducts, 
@@ -168,12 +187,14 @@ export function useProduct() {
         setSelectedCategory,
         categories,
         sortedProducts,
+        sortOrder,
         setSortOrder,
         addToFavourites,
         favouriteProducts,
         removeFromFavourites,
         addToCompare,
         compareProducts,
-        removeFromCompare
+        removeFromCompare,
+        debounceSearch
     };
 }

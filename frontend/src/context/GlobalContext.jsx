@@ -8,6 +8,7 @@ const GlobalProvider = ({ children }) => {
         products, 
         setProducts, 
         sortedProducts, 
+        sortOrder,
         searchQuery, 
         setSearchQuery,
         selectedCategory,
@@ -19,14 +20,16 @@ const GlobalProvider = ({ children }) => {
         removeFromFavourites,
         compareProducts,
         addToCompare,
-        removeFromCompare
+        removeFromCompare,
+        debounceSearch
     } = useProduct();
 
     return(
         <GlobalContext.Provider value={{ 
             products, 
             setProducts, 
-            sortedProducts, 
+            sortedProducts,
+            sortOrder, 
             searchQuery, 
             setSearchQuery,
             selectedCategory,
@@ -38,7 +41,8 @@ const GlobalProvider = ({ children }) => {
             removeFromFavourites,
             compareProducts,
             addToCompare,
-            removeFromCompare
+            removeFromCompare,
+            debounceSearch
         }}>
             {children}
         </GlobalContext.Provider>
