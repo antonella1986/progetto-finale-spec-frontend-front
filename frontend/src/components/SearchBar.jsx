@@ -5,11 +5,15 @@ export default function SearchBar() {
     const { searchQuery, setSearchQuery } = useContext(GlobalContext);
 
     return (
-        <input
-            type="text"
-            placeholder="Cerca un prodotto"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-        />
+        <>
+            <label htmlFor="search-input" className="form-label"><strong>Cerca un prodotto</strong></label>
+            <input
+                type="text"
+                placeholder="Scrivi qui..."
+                className="form-control"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+            />
+        </>
     );
 }

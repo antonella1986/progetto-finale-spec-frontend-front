@@ -10,7 +10,7 @@ export default function Header() {
                 <span className="navbar-toggler-icon"></span>
                 </button>
                 <Link className="text-decoration-none active" to={'/'}>
-                    <img className="logo" src={logo} alt="Logo" style={{height: '80px'}} />
+                    <img className="logo" src={logo} alt="Logo" style={{height: '60px'}} />
                 </Link>
                 <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0 p-3">

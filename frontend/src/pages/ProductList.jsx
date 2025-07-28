@@ -7,13 +7,16 @@ export default function ProductList() {
     const { sortOrder, setSortOrder, sortedProducts, categories, selectedCategory, setSelectedCategory } = useContext(GlobalContext);
 
     return (
-        <>
-            <div className="container mt-3">
-                <div className="row mb-4">
+        <>           
+            <h1 className="text-center mb-5 mt-5"><strong>I nostri prodotti</strong></h1>
+
+            <div className="container container-products mt-5">
+                <div className="row mb-5">
                     <div className="col-md-4">
                         <SearchBar />
                     </div>
                     <div className="col-md-4">
+                        <label htmlFor="category-select" className="form-label"><strong>Cerca per categoria</strong></label>
                         <select 
                             className="form-select" 
                             value={selectedCategory}
@@ -28,6 +31,7 @@ export default function ProductList() {
                         </select>
                     </div>
                     <div className="col-md-4">
+                        <label htmlFor="sort-select" className="form-label"><strong>Ordina per</strong></label>
                         <select 
                             className="form-select" 
                             value={sortOrder}
@@ -39,12 +43,11 @@ export default function ProductList() {
                     </div>
                 </div>
             </div>
-            
-            <h1 className="text-center mb-4">I nostri prodotti</h1>
+
             <div className="container">
                 <div className="row">
                     {sortedProducts.map((product) => (
-                        <div key={product.id} className="col-md-4 mb-3">
+                        <div key={product.id} className="col-md-4 mb-5">
                             <div className="card">
                                 <div className="card-body">
                                     <h5 className="card-title">
@@ -54,7 +57,7 @@ export default function ProductList() {
                                     <div>
                                         <Link 
                                             to={`/products/${product.id}`} 
-                                            className="btn btn-primary"
+                                            className="btn btn-products"
                                         >
                                             Dettagli
                                         </Link>
