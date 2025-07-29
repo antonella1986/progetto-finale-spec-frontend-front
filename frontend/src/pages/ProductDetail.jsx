@@ -8,8 +8,11 @@ export default function ProductDetail() {
     const [product, setProduct] = useState(null);
     const navigate = useNavigate();
 
+    //mi serve lo useEffect perché i dati arrivano in momenti diversi: prima arriva l'ID dall'URL e poi arriva la lista dei prodotti dal server. quindi useEffect aspetta che arrivino entrambi, poi trova quello giusto. senza, il codice gira solo una volta all'inizio quando non ho ancora i prodotti, quindi non trova niente!
     useEffect(() => {
+        //nell'array products, cerco il prodotto con l'id corrispondente
         const foundProduct = products.find(p => p.id === parseInt(id));
+        //se il prodotto è stato trovato, lo imposto come prodotto corrente
         setProduct(foundProduct);
     }, [id, products]);
 
@@ -37,7 +40,7 @@ export default function ProductDetail() {
             <div className="row">
                 <div className="col-md-6">
                     <img 
-                        src={product.imageUrl} 
+                        srcSet={product.imageUrl} 
                         alt={product.title}
                         className="img-fluid rounded"
                         style={{ maxHeight: '400px', objectFit: 'cover' }}
@@ -91,3 +94,22 @@ export default function ProductDetail() {
         </div>
     );
 }
+
+/*
+
+🔄 Scenario completo:
+
+Situazione 1 - Primo caricamento:
+Utente clicca su "Pomodori" nella lista → URL diventa /products/3
+useParams() estrae id = "3"
+useEffect cerca il prodotto con ID 3 nell'array products
+Pagina mostra i dettagli dei pomodori
+
+Situazione 2 - Cambio prodotto:
+Utente clicca su "Basilico" → URL diventa /products/7
+useParams() ora restituisce id = "7"
+useEffect si riattiva (perché id è cambiato!)
+Cerca il prodotto con ID 7
+Pagina si aggiorna e mostra i dettagli del basilico
+
+*/

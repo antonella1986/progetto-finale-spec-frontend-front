@@ -123,7 +123,7 @@ export function useProduct() {
             setCompareList(newComparedList)
             alert ('Prodotto aggiunto al confronto!')
             localStorage.setItem('compareList', JSON.stringify([...compareList, id]))
-            if (newComparedList.length === 2) {
+            if (newComparedList.length >= 2) {
                 navigate('/comparing')
             }
         }
@@ -198,3 +198,14 @@ export function useProduct() {
         debounceSearch
     };
 }
+
+
+/*
+1.L’utente digita nella SearchBar → parte debounceSearch(value).
+2. Dopo 500 ms di inattività → viene aggiornato searchQuery.
+3. searchQuery è una dipendenza di useMemo(), quindi ogni volta che cambia...
+4. ...React ricalcola filteredProducts filtrando i prodotti per:
+    - Titolo (matchesSearch)
+    - Categoria selezionata (matchesCategory)
+5. Il risultato filtrato viene poi visualizzato nell’interfaccia, per esempio in una griglia o lista.
+*/
