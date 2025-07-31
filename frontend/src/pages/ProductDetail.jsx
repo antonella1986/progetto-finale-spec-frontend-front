@@ -8,7 +8,7 @@ export default function ProductDetail() {
     const [product, setProduct] = useState(null);
     const navigate = useNavigate();
 
-    //mi serve lo useEffect perché i dati arrivano in momenti diversi: prima arriva l'ID dall'URL e poi arriva la lista dei prodotti dal server. quindi useEffect aspetta che arrivino entrambi, poi trova quello giusto. senza, il codice gira solo una volta all'inizio quando non ho ancora i prodotti, quindi non trova niente!
+    //mi serve lo useEffect perché i dati arrivano in momenti diversi: prima arriva l'ID dall'URL e poi arriva la lista dei prodotti dal server. useEffect si attiva (quindi esegue la logica al suo interno) ogni volta che cambia id o products (cioè quando l'utente seleziona un determinato prodotto), così quando arrivano entrambi trova quello giusto. senza, il codice gira solo una volta all'inizio quando non ho ancora i prodotti, quindi non trova niente!
     useEffect(() => {
         //nell'array products, cerco il prodotto con l'id corrispondente
         const foundProduct = products.find(p => p.id === parseInt(id));

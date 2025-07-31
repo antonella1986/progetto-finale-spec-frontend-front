@@ -9,20 +9,31 @@ export function useProduct() {
     const [compareList, setCompareList] = useState([]);
 
     useEffect(() => {
+        //fetchProducts() è asincrona perché deve attendere la risposta del server senza bloccare l'interfaccia utente. l'await garantisce che response.json() venga eseguito solo dopo aver ricevuto i dati dal server
         async function fetchProducts() {
             try {
                 //prima ottengo la lista con solo alcuni campi
                 const response = await fetch("http://localhost:3001/products");
+                //ottengo i prodotti con solo ig, title, category, createdAt e updatedAt
                 const basicProducts = await response.json();
                 
-                //poi per ogni prodotto, ottengo i dati completi
+                //poi per ogni prodotto, prendo i dettagli completi
+                //per ogni prodotto, il map esegue una funzione asincrona (che restituisce una promise per prodotto)
+                //uso basicProduct come parametro perché mi serve dentro alla funzione per accedere all'id del prodotto (per la fetch dettagliata)
                 const fullProductsPromises = basicProducts.map(async (basicProduct) => {
+                    //dalla fetch ottengo una risposta grezza (oggetto di tipo Response [status, body, headers...])
                     const fullResponse = await fetch(`http://localhost:3001/products/${basicProduct.id}`);
+                    //trasformo la risposta in oggetto JS
                     const fullData = await fullResponse.json();
+                    //restituisco solo la parte product della risposta (altrimenti avrei ottenuto anche status: success e product sarebbe stato annidato)
+                    //ora la promise viene risolta: il valore viene "affidato" all'esterno grazie al return, diventando il risultato della promise
                     return fullData.product;
-                });
+                }); //in console qui vedrei [ Promise { <pending> }, Promise { <pending> }... ]
                 
+                //aspetto che TUTTE le chiamate ai dettagli finiscano
+                //...grazie al return, ogni .map() restituisce una Promise, e uso Promise.all() per aspettare che tutte le fetch siano completate, ottenendo così la lista di tutti i prodotti con i dettagli completi
                 const fullProducts = await Promise.all(fullProductsPromises);
+                //salvo tutti i prodotti completi nello stato products. ora ho tutti i dati e posso mostrarli
                 setProducts(fullProducts);
             } catch (error) {
                 console.error("Errore nel caricamento dei prodotti:", error);

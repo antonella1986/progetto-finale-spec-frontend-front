@@ -94,7 +94,7 @@ export default function Comparator() {
                         </tbody>
                     </table>
                 ) : (
-                    <p className="text-center">Aggiungi 2 prodotti per il confronto</p>
+                    <p className="text-center mb-5">Aggiungi 2 prodotti per il confronto</p>
                 )}
             </div>
         </>

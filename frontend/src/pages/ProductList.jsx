@@ -25,6 +25,7 @@ export default function ProductList() {
                             <option value="">Tutte le categorie</option>
                             {categories.map((category) => (
                                 <option key={category} value={category}>
+                                    {/* prendo la prima lettera (category.charAt(0), la transformo in maiuscolo (toUpperCase) e concateno con il resto del nome (+ category.slice(1)) */}
                                     {category.charAt(0).toUpperCase() + category.slice(1)}
                                 </option>
                             ))}
