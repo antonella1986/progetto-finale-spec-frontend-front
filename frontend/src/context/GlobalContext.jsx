@@ -58,5 +58,5 @@ export { GlobalContext, GlobalProvider };
 
 //creo un componente provider che ha lo scopo di rendere disponibili a tutti i suoi componenti figli una serie di stati e funzioni condivise (come products, setSearchQuery, addToFavourites, ecc.).
 //Queste funzioni e stati non vengono scritti direttamente dentro il GlobalProvider, ma vengono centralizzati in un hook personalizzato, chiamato useProduct.
-//Il GlobalProvider richiama questo hook e estrae tutte le funzionalità di cui ha bisogno, per poi passarle al context tramite il valore del GlobalContext.Provider.
+//Il GlobalProvider richiama questo hook ed estrae tutte le funzionalità di cui ha bisogno, per poi passarle al context tramite il valore del GlobalContext.Provider.
 //In questo modo, qualsiasi componente figlio del provider può accedere a quei dati/funzioni semplicemente utilizzando useContext(GlobalContext).

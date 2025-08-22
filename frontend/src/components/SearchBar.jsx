@@ -35,6 +35,28 @@ export default function SearchBar() {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*
 Tutti i componenti (SearchBar e ProductList) condividono lo stesso stato attraverso il GlobalContext, che a sua volta prende i dati da un'unica istanza di useProduct, garantendo che quando uno modifica qualcosa, tutti gli altri se ne accorgono immediatamente.
 ┌─────────────┐    ┌──────────────┐    ┌──────────────┐

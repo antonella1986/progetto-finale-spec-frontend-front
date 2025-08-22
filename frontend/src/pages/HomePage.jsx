@@ -83,7 +83,7 @@ export default function HomePage() {
             </section>
             </section>
             <section className='container3'>
-                <img src="/img/family.jpg" className='img-family' alt="" srcset="" />
+                <img src="/img/family.jpg" className='img-family' alt="" srcSet="" />
                 <div className='descr-family'>
                     <h2><strong>Questa siamo noi.</strong></h2>
                     <p>Una famiglia unita dall'amore per la terra e i suoi frutti. Ogni raccolto è il risultato di giornate di lavoro, mani sporche di terra e passione che si tramanda da generazioni. <br /> <br />

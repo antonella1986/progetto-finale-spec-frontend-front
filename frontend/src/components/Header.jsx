@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import logo from '../../public/img/logo-exp-png.png';
+import logo from '../../public/img/new_logo.png';
 import preferiti from '../../public/img/preferiti.svg';
 
 export default function Header() {

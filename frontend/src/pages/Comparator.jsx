@@ -7,7 +7,7 @@ export default function Comparator() {
 
     return (
         <>
-            <h1 className="text-center mb-5 mt-5"><strong>Confronta due prodotti</strong></h1>
+            <h1 className="text-center mb-4 mt-5"><strong>Confronta due prodotti</strong></h1>
             <div className="container">
                 {compareProducts.length >= 1 ? (
                     <table className="table table-bordered mb-5">
@@ -94,8 +94,16 @@ export default function Comparator() {
                         </tbody>
                     </table>
                 ) : (
-                    <p className="text-center mb-5">Aggiungi 2 prodotti per il confronto</p>
+                    <p className="text-center mb-4">Aggiungi 2 prodotti!</p>
                 )}
+            </div>
+            <div className="text-center mb-5">
+                <Link 
+                    to="/products" 
+                    className="btn btn-products"
+                >
+                    Vai alla lista dei prodotti
+                </Link>
             </div>
         </>
     );
