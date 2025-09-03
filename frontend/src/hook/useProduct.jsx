@@ -71,7 +71,7 @@ export function useProduct() {
         //Set rimuove i duplicati, ma ciò che restituisce non è un array (è un oggetto Set: { "verdura", "frutta" }), quindi lo spread lo converte automaticamente in array)
         const uniqueCategories = [...new Set(products.map(product => product.category))];
         //mi ritorna le categorie in ordine alfabetico
-        return uniqueCategories.sort();
+        return uniqueCategories.sort(); //stringhe
     }, [products]);
 
     //FUNZIONE PER OTTENERE I PRODOTTI FILTRATI DALL'UTENTE (PER TITOLO E PER CATEGORIA)
@@ -90,7 +90,7 @@ export function useProduct() {
     const sortedProducts = useMemo (() => {
         //sortOrder contiene il tipo di ordinamento selezionato dall'utente
         if (sortOrder === "title-asc") {
-            return [...filteredProducts].sort((a, b) => a.title.localeCompare(b.title));
+            return [...filteredProducts].sort((a, b) => a.title.localeCompare(b.title)); //oggetti
         } else if (sortOrder === "title-desc") {
             return [...filteredProducts].sort((a, b) => b.title.localeCompare(a.title));
         }
@@ -173,20 +173,13 @@ export function useProduct() {
     }, [compareList, products])
 
     //FUNZIONE PER RIMUOVERE I PRODOTTI DAL COMPARATORE
-    //navigate = null -> redirect opzionale in base al caso (nei vari componenti)
-    //opzionale nel senso che: non mi serve il redirect se nel comparatore elimino un solo prodotto e ne rimane un altro, e mi serve il redirect se nel comparatore elimino entrambi i prodotti, corretto?
-    function removeFromCompare(id, navigate = null) {
+    function removeFromCompare(id) {
         if (compareList.includes(id)) {
             //uso filter perché restituisce un nuovo array senza l'elemento che voglio rimuovere
             const newRemovedComparedList = compareList.filter(compareId => compareId !== id);
             setCompareList(newRemovedComparedList);
             localStorage.setItem('compareList', JSON.stringify(newRemovedComparedList));
             alert ('Prodotto rimosso dal comparatore!')
-            
-            //se viene rimosso l'ultimo prodotto dalla lista (che appunto rimane vuota), viene fatto il redirect
-            if (navigate && newRemovedComparedList.length === 0) {
-                navigate('/products')
-            }
         } else {
             alert ('Questo prodotto non era nel tuo comparatore!')
         }

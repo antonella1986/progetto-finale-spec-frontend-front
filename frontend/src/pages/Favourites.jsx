@@ -39,6 +39,14 @@ export default function Favourites() {
                     ))}
                 </div>
             </div>
+                        <div className="text-center mb-5">
+                <Link 
+                    to="/products" 
+                    className="btn btn-products"
+                >
+                    Vai alla lista dei prodotti
+                </Link>
+            </div>
         </>
     );
 }
